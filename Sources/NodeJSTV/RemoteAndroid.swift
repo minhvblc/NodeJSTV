@@ -16,7 +16,7 @@ class RemoteAndroid {
     private
     let nodePath = Bundle.main.path(forResource: "nodejs-project/main.js", ofType: "")
     private
-    let nodeQueue = DispatchQueue(label: "nodejs")
+    let nodeQueue = DispatchQueue(label: "alo", qos: .background,  attributes: .concurrent)
     private
     var url: String? = ""
     private
@@ -37,11 +37,11 @@ class RemoteAndroid {
             ])
         }
         
-        Addon.handler = { [weak self] env, value in
-            let msg = "Node msg: \(env)-\(value)-\(Date())"
-            self?.delegate?.didReceiveMessage(msg: msg)
-            print(env, value, Date())
-        }
+//        Addon.handler = { [weak self] env, value in
+//            let msg = "Node msg: \(env)-\(value)-\(Date())"
+//            self?.delegate?.didReceiveMessage(msg: msg)
+//            print(env, value, Date())
+//        }
         self.url = url
         callJS(dict: [
             "type": "pair",

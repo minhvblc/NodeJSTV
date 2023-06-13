@@ -30,12 +30,12 @@ class RemoteAndroid {
     
     public
     func connect(url: String) {
-        nodeQueue.async {
-            NodeRunner.startEngine(arguments: [
-                "node",
-                self.nodePath!
-            ])
-        }
+//        nodeQueue.async {
+//            NodeRunner.startEngine(arguments: [
+//                "node",
+//                self.nodePath!
+//            ])
+//        }
         
 //        Addon.handler = { [weak self] env, value in
 //            let msg = "Node msg: \(env)-\(value)-\(Date())"
